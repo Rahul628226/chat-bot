@@ -165,7 +165,7 @@ const formatMessageContent = (text) => {
     const userQuery = input;
 
     try {
-      const res = await fetch("http://40.172.159.105/api/faqs/query", {
+      const res = await fetch("/api/faqs/query", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: userQuery }),
