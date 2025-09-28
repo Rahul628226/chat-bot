@@ -15,38 +15,38 @@ const ChatBot = ({ onClose }) => {
 
 
 
-const formatMessageContent = (text) => {
-  if (!text) return null;
+  const formatMessageContent = (text) => {
+    if (!text) return null;
 
-  // Split by comma and trim each part, join with <br> for line breaks
-  let formatted = text
-    .split('\n')
-    .map(part => part.trim())
-    .join('<br>');
+    // Split by comma and trim each part, join with <br> for line breaks
+    let formatted = text
+      .split('\n')
+      .map(part => part.trim())
+      .join('<br>');
 
-  // Regex patterns
-  const urlPattern = /(https?:\/\/[^\s]+|www\.[^\s]+)/gi;
-  const emailPattern = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi;
-  const phonePattern = /(\+?\d[\d\s-]{7,}\d)/g;
+    // Regex patterns
+    const urlPattern = /(https?:\/\/[^\s]+|www\.[^\s]+)/gi;
+    const emailPattern = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi;
+    const phonePattern = /(\+?\d[\d\s-]{7,}\d)/g;
 
-  // Replace URLs
-  formatted = formatted.replace(urlPattern, (url) => {
-    const href = url.startsWith("http") ? url : `https://${url}`;
-    return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline block">${url}</a>`;
-  });
+    // Replace URLs
+    formatted = formatted.replace(urlPattern, (url) => {
+      const href = url.startsWith("http") ? url : `https://${url}`;
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline block">${url}</a>`;
+    });
 
-  // Replace Emails
-  formatted = formatted.replace(emailPattern, (email) => {
-    return `<a href="mailto:${email}" class="text-blue-600 underline block">${email}</a>`;
-  });
+    // Replace Emails
+    formatted = formatted.replace(emailPattern, (email) => {
+      return `<a href="mailto:${email}" class="text-blue-600 underline block">${email}</a>`;
+    });
 
-  // Replace Phone Numbers
-  formatted = formatted.replace(phonePattern, (phone) => {
-    return `<a href="tel:${phone.replace(/\s|-/g, '')}" class="text-blue-600 underline block">${phone}</a>`;
-  });
+    // Replace Phone Numbers
+    formatted = formatted.replace(phonePattern, (phone) => {
+      return `<a href="tel:${phone.replace(/\s|-/g, '')}" class="text-blue-600 underline block">${phone}</a>`;
+    });
 
-  return formatted;
-};
+    return formatted;
+  };
 
 
 
@@ -286,17 +286,15 @@ const formatMessageContent = (text) => {
               {message.content && (
                 <div
                   style={{
-                    borderRadius: message.type === 'bot' ? "20px 20px 20px 3px" : "20px 20px 3px 20px", // Bot vs User
-                    maxWidth: "250px",
-                    display: "block",
+                    borderRadius: message.type === 'bot' ? "20px 20px 20px 3px" : "20px 20px 3px 20px",
                   }}
-                  className={`rounded-2xl px-4 py-3 ${message.type === 'bot'
+                  className={`rounded-2xl px-4 py-3 break-words max-w-full md:max-w-xs lg:max-w-md ${message.type === 'bot'
                     ? 'bg-white text-gray-800 shadow-sm'
                     : 'bg-[#344b73] text-white'
                     }`}
                 >
                   <p
-                    className="text-sm leading-relaxed whitespace-pre-line"
+                    className="text-sm leading-relaxed whitespace-pre-line break-words"
                     dangerouslySetInnerHTML={{ __html: formatMessageContent(message.content) }}
                   ></p>
                 </div>
@@ -306,14 +304,15 @@ const formatMessageContent = (text) => {
 
               {/* OPTIONS → with header + wider + better padding */}
               {message.isOption && message.options && (
-                <div className="mt-2 rounded-xl bg-white shadow-sm border border-gray-200 overflow-hidden" style={{
-                  borderRadius: "20px 20px 20px 3px", // Bot vs User
-                  maxWidth: "250px",
-                  display: "block",
-                }}>
+                <div
+                  className="mt-2 rounded-xl bg-white shadow-sm border border-gray-200 overflow-hidden break-words max-w-full md:max-w-xs lg:max-w-md"
+                  style={{
+                    borderRadius: "20px 20px 20px 3px", // Bot vs User
+                  }}
+                >
                   {message.optionHeader && (
                     <div className="px-4 py-3 bg-gray-50">
-                      <p className="text-sm font-semibold text-gray-700">
+                      <p className="text-sm font-semibold text-gray-700 break-words">
                         {message.optionHeader}
                       </p>
                     </div>
@@ -322,13 +321,14 @@ const formatMessageContent = (text) => {
                     <button
                       key={index}
                       onClick={() => handleOptionClick(option)}
-                      className="block w-full cursor-pointer text-center text-sm text-blue-800 px-4 py-3 hover:bg-blue-50 border-b last:border-b-0 border-gray-200"
+                      className="block w-full cursor-pointer text-center text-sm text-blue-800 px-4 py-3 hover:bg-blue-50 border-b last:border-b-0 border-gray-200 break-words"
                     >
                       {option}
                     </button>
                   ))}
                 </div>
               )}
+
             </div>
           </div>
 
