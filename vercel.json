@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "dist/chat-widget.umd.js", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/chat-widget.js", "dest": "/dist/chat-widget.umd.js" }
+  ]
+}
