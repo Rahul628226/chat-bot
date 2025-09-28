@@ -15,7 +15,7 @@ const FloatingChat = () => {
   useEffect(() => {
     const screenWidth = window.innerWidth;
     if (screenWidth <= 480) {
-      setSize({ width: screenWidth - 38, height: 500 }); // full width minus margin
+      setSize({ width: screenWidth - 38, height: 550 }); // full width minus margin
     }
   }, []);
 
