@@ -12,7 +12,7 @@ export default {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // <-- include .jsx
+        test: /\.(js|jsx)$/, // include .jsx
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -25,14 +25,10 @@ export default {
         test: /\.css$/,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
-
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'], // <-- resolve imports without extensions
+    extensions: ['.js', '.jsx'], // resolve imports without extensions
   },
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-  },
+  // REMOVE externals completely
 };
