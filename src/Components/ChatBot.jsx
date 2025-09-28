@@ -195,7 +195,7 @@ const ChatBot = ({ onClose }) => {
         <div className="flex items-left gap-3">
           <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
             <img
-              src="/bot.png"
+              src="https://chat-bot-sooty-phi.vercel.app/bot.png"
               alt="Bot"
               className="w-8 h-8 object-contain rounded-full"
             />
@@ -267,7 +267,7 @@ const ChatBot = ({ onClose }) => {
             >
               {message.type === 'bot' ? (
                 <img
-                  src="/bot.png"
+                  src="https://chat-bot-sooty-phi.vercel.app/bot.png"
                   alt="Bot"
                   className="w-6 h-6 rounded-full object-contain"
                 />
@@ -334,7 +334,7 @@ const ChatBot = ({ onClose }) => {
           <div className="flex gap-3">
             <div className="w-10 h-10 rounded-full bg-white text-white flex items-center justify-center">
               <img
-                src="/bot.png"
+                src="https://chat-bot-sooty-phi.vercel.app/bot.png"
                 alt="Bot"
                 className="w-6 h-6 rounded-full object-contain"
               />

@@ -68,7 +68,7 @@ const FloatingChat = () => {
             className="h-14 w-14 sm:h-16 sm:w-16 rounded-full shadow-lg bg-[#344b73] cursor-pointer overflow-hidden flex items-center justify-center p-0"
           >
             <img
-              src="/bot.png"
+              src="https://chat-bot-sooty-phi.vercel.app/bot.png"
               alt="Bot"
               className="w-3/4 h-3/4 sm:w-4/5 sm:h-4/5 object-contain rounded-full"
             />
