@@ -353,8 +353,8 @@ const ChatBot = ({ onClose }) => {
       </div>
 
       {/* Input */}
-      <div className="p-4 bg-white ">
-        <div className="flex gap-2">
+      <div className="p-4 bg-white">
+        <div className="flex gap-2 mb-2">
           <Input
             type="text"
             placeholder="Type your message..."
@@ -365,15 +365,18 @@ const ChatBot = ({ onClose }) => {
           />
           <button
             onClick={handleSendMessage}
-            className="inline-flex items-center justify-center px-3 py-3 bg-[#dfe1e4] font-bold text-[white] text-sm  rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none"
+            className="inline-flex items-center justify-center px-3 py-3 bg-[#dfe1e4] font-bold text-[white] text-sm rounded-full cursor-pointer focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none"
           >
             <Send className="w-4 h-4" />
           </button>
+        </div>
 
-
-
+        {/* Footer branding */}
+        <div className="text-center text-xs text-gray-500 pt-2">
+          Powered by⚡<span className="font-semibold text-[#344b73]">Wall Street Jr Investments</span>
         </div>
       </div>
+
     </div>
   );
 };
