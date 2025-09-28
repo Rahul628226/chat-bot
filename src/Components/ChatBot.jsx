@@ -20,7 +20,7 @@ const formatMessageContent = (text) => {
 
   // Split by comma and trim each part, join with <br> for line breaks
   let formatted = text
-    .split(',')
+    .split('\n')
     .map(part => part.trim())
     .join('<br>');
 

@@ -4,29 +4,25 @@
     "answer": "Wall Street Jr Investments is a leading financial services company dedicated to helping individuals and businesses achieve their investment goals. With over 15 years of experience, we provide personalized investment strategies, comprehensive financial planning, and expert guidance to build long-term wealth."
   },
   "contactUs": {
-    "question": "Contact Us", 
-    "answer": "📍 Address: 123 Financial District, New York, NY 10005\n📞 Phone: (555) 123-4567\n📧 Email: info@wallstreetjr.com\n🕒 Business Hours: Monday - Friday, 9:00 AM - 6:00 PM EST\n\nOur customer service team is ready to assist you with any questions about our investment services."
+    "question": "Contact Us",
+    "answer": "Address: 1901-2, City Tower 2, Sheikh Zayed Road, Dubai\n Phone: +971 4 552 9700\n Email: info@wallstreetjr.com\n \nOur customer service team is ready to assist you with any questions about our investment services."
   },
   "services": {
     "portfolioManagement": {
       "question": "Portfolio Management",
-      "answer": "Our professional portfolio management service provides customized investment strategies tailored to your risk tolerance and financial goals. We continuously monitor and rebalance your portfolio to optimize performance while managing risk."
+      "answer": "Our portfolio management goes beyond static oversight. We provide institutional-grade strategies that adapt to market changes and personal goals, helping clients target consistent returns. With precise asset allocation, ongoing monitoring, and performance-driven adjustments, we ensure your investments stay optimized and aligned with your financial trajectory. Learn more: https://wallstreetjrinvestments.com/services/portfolio-management-advisory"
     },
-    "financialPlanning": {
-      "question": "Financial Planning",
-      "answer": "Comprehensive financial planning services including retirement planning, tax optimization, estate planning, and insurance analysis. Our certified financial planners work with you to create a roadmap for your financial future."
+    "InvestmentMnagaement": {
+      "question": "Investment Management",
+      "answer": "Without a clear goal, you end up wandering. Our investment and wealth management consulting service starts with your life goals and works backwards to lay out steps to achieve them. Every move is meticulously planned and every portfolio decision is backed by a personalised strategy that reflects your vision, ambitions, and risk appetite. Asset management is carried out with structure, discipline, and forward-looking insight so that every decision moves you closer to where you want to be. Learn more: https://wallstreetjrinvestments.com/services/investment-wealth-management-consulting"
     },
-    "investmentConsulting": {
-      "question": "Investment Consulting",
-      "answer": "Expert investment consulting for high-net-worth individuals and institutions. We provide market analysis, investment research, and strategic advice to help you make informed investment decisions."
+    "CapitalCode": {
+      "question": "Capital Code",
+      "answer": "A strategy-led financial literacy program that bridges the gap between institutional investment strategies and individual investors. Learn more: https://wallstreetjrinvestments.com/services/CapitalCode"
     },
-    "retirementPlanning": {
-      "question": "Retirement Planning",
-      "answer": "Specialized retirement planning services including 401(k) optimization, IRA management, pension planning, and retirement income strategies. We help you build a secure financial foundation for your golden years."
-    },
-    "wealthManagement": {
-      "question": "Wealth Management",
-      "answer": "Holistic wealth management for affluent clients including asset allocation, trust services, family office solutions, and multi-generational wealth transfer strategies. Our team provides white-glove service for complex financial needs."
+    "riskManagement": {
+      "question": "Risk Management / Asset Restructuring",
+      "answer": "Volatility is a feature, not a flaw. We identify portfolio risks across market, credit, liquidity, and operations, then apply tailored strategies to protect capital. With ongoing monitoring and scenario planning, we enhance resilience, helping your portfolio perform confidently in any market environment. Learn more: https://wallstreetjrinvestments.com/services/risk-management-asset-restructuring"
     }
   },
   "faq": [
