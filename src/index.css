@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+
+
 
 @layer base {
+
+  
   :root {
     --background: 240 10% 98%;
     --foreground: 220 18% 20%;
@@ -137,5 +139,6 @@ All colors MUST be HSL.
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    font-family: 'Montserrat', sans-serif;
   }
 }
