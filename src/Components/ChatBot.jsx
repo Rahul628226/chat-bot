@@ -15,34 +15,39 @@ const ChatBot = ({ onClose }) => {
 
 
 
-  const formatMessageContent = (text) => {
-    if (!text) return null;
+const formatMessageContent = (text) => {
+  if (!text) return null;
 
-    // Regex patterns
-    const urlPattern = /(https?:\/\/[^\s]+|www\.[^\s]+)/gi;
-    const emailPattern = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi;
-    const phonePattern = /(\+?\d[\d\s-]{7,}\d)/g;
+  // Split by comma and trim each part, join with <br> for line breaks
+  let formatted = text
+    .split(',')
+    .map(part => part.trim())
+    .join('<br>');
 
-    let formatted = text;
+  // Regex patterns
+  const urlPattern = /(https?:\/\/[^\s]+|www\.[^\s]+)/gi;
+  const emailPattern = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi;
+  const phonePattern = /(\+?\d[\d\s-]{7,}\d)/g;
 
-    // Replace URLs
-    formatted = formatted.replace(urlPattern, (url) => {
-      const href = url.startsWith("http") ? url : `https://${url}`;
-      return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline block">${url}</a>`;
-    });
+  // Replace URLs
+  formatted = formatted.replace(urlPattern, (url) => {
+    const href = url.startsWith("http") ? url : `https://${url}`;
+    return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline block">${url}</a>`;
+  });
 
-    // Replace Emails
-    formatted = formatted.replace(emailPattern, (email) => {
-      return `<a href="mailto:${email}" class="text-blue-600 underline block">${email}</a>`;
-    });
+  // Replace Emails
+  formatted = formatted.replace(emailPattern, (email) => {
+    return `<a href="mailto:${email}" class="text-blue-600 underline block">${email}</a>`;
+  });
 
-    // Replace Phone Numbers
-    formatted = formatted.replace(phonePattern, (phone) => {
-      return `<a href="tel:${phone.replace(/\s|-/g, '')}" class="text-blue-600 underline block">${phone}</a>`;
-    });
+  // Replace Phone Numbers
+  formatted = formatted.replace(phonePattern, (phone) => {
+    return `<a href="tel:${phone.replace(/\s|-/g, '')}" class="text-blue-600 underline block">${phone}</a>`;
+  });
 
-    return formatted;
-  };
+  return formatted;
+};
+
 
 
 
@@ -135,10 +140,9 @@ const ChatBot = ({ onClose }) => {
         setTimeout(() => {
           addBotMessage("", true, [
             'Portfolio Management',
-            'Financial Planning',
-            'Investment Consulting',
-            'Retirement Planning',
-            'Wealth Management'
+            'Investment Management',
+            'Capital Code',
+            'Risk Management / Asset Restructuring',
           ], "Choose a service to learn more:");
         }, 800);
       }, 500);
@@ -161,7 +165,7 @@ const ChatBot = ({ onClose }) => {
     const userQuery = input;
 
     try {
-      const res = await fetch("http://localhost:5000/api/faqs/query", {
+      const res = await fetch("http://40.172.159.105/api/faqs/query", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: userQuery }),
@@ -251,7 +255,7 @@ const ChatBot = ({ onClose }) => {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 pb-10 md:pb-12">
         {messages.map((message) => (
           <div
             key={message.id}
@@ -283,7 +287,7 @@ const ChatBot = ({ onClose }) => {
                 <div
                   style={{
                     borderRadius: message.type === 'bot' ? "20px 20px 20px 3px" : "20px 20px 3px 20px", // Bot vs User
-                    maxWidth: "230px",
+                    maxWidth: "250px",
                     display: "block",
                   }}
                   className={`rounded-2xl px-4 py-3 ${message.type === 'bot'
@@ -304,7 +308,7 @@ const ChatBot = ({ onClose }) => {
               {message.isOption && message.options && (
                 <div className="mt-2 rounded-xl bg-white shadow-sm border border-gray-200 overflow-hidden" style={{
                   borderRadius: "20px 20px 20px 3px", // Bot vs User
-                  maxWidth: "230px",
+                  maxWidth: "250px",
                   display: "block",
                 }}>
                   {message.optionHeader && (
@@ -331,7 +335,7 @@ const ChatBot = ({ onClose }) => {
         ))}
 
         {isTyping && (
-          <div className="flex gap-3">
+          <div className="flex gap-3 py-4">
             <div className="w-10 h-10 rounded-full bg-white text-white flex items-center justify-center">
               <img
                 src="https://chat-bot-sooty-phi.vercel.app/bot.png"
@@ -339,7 +343,7 @@ const ChatBot = ({ onClose }) => {
                 className="w-6 h-6 rounded-full object-contain"
               />
             </div>
-            <div className="bg-white rounded-2xl px-4 py-4 shadow-sm">
+            <div className="bg-white rounded-2xl px-4 shadow-sm py-4">
               <div className="flex space-x-1">
                 <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                 <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
