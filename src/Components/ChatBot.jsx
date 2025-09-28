@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Send, Bot, User, X, MoreVertical, Clock } from 'lucide-react';
 import faqData from '../data/faq.json';
-import { Button } from './ui/Button';
-import { Input } from './ui/Input';
+import { Input } from './ui/Input.jsx';
 import { FaWhatsapp } from "react-icons/fa";
 
 const ChatBot = ({ onClose }) => {

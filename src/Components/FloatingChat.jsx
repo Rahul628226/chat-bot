@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { MessageCircle } from "lucide-react";
-import ChatBot from "./ChatBot";
-import { Button } from "./ui/Button";
+import ChatBot from "./ChatBot.jsx";
 
 const FloatingChat = () => {
   const [isOpen, setIsOpen] = useState(false);
