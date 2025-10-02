@@ -1,50 +1,74 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { cva } from "class-variance-authority";
-import { cn } from "../../lib/utils";
-
-const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
-  {
-    variants: {
-      variant: {
-        default: "bg-blue-600 text-white hover:bg-blue-700",
-        destructive: "bg-red-600 text-white hover:bg-red-700",
-        outline:
-          "border border-gray-300 bg-white hover:bg-gray-100 hover:text-gray-900",
-        secondary: "bg-gray-200 text-gray-900 hover:bg-gray-300",
-        ghost: "hover:bg-gray-100 hover:text-gray-900",
-        link: "text-blue-600 underline-offset-4 hover:underline",
-        round: "bg-gray-200 text-gray-900 hover:bg-gray-300 rounded-full", // new variant
-      },
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 px-3",
-        lg: "h-11 px-8",
-        icon: "h-10 w-10",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  }
-);
-
 
 const Button = React.forwardRef(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className = "", variant = "default", size = "default", asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
+
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
+      <>
+        <style>{`
+          .botstart-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+            font-weight: 500;
+            font-size: 0.875rem; /* text-sm */
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+          }
+
+          /* Variants */
+          .botstart-button-default { background: #2563eb; color: white; }
+          .botstart-button-default:hover { background: #1d4ed8; }
+
+          .botstart-button-destructive { background: #dc2626; color: white; }
+          .botstart-button-destructive:hover { background: #b91c1c; }
+
+          .botstart-button-outline {
+            border: 1px solid #d1d5db;
+            background: white;
+            color: #111827;
+          }
+          .botstart-button-outline:hover { background: #f3f4f6; color: #111827; }
+
+          .botstart-button-secondary { background: #e5e7eb; color: #111827; }
+          .botstart-button-secondary:hover { background: #d1d5db; }
+
+          .botstart-button-ghost { background: transparent; color: #111827; }
+          .botstart-button-ghost:hover { background: #f3f4f6; }
+
+          .botstart-button-link { background: transparent; color: #2563eb; text-decoration: underline; }
+          .botstart-button-link:hover { text-decoration: underline; }
+
+          .botstart-button-round { background: #e5e7eb; color: #111827; border-radius: 9999px; }
+          .botstart-button-round:hover { background: #d1d5db; }
+
+          /* Sizes */
+          .botstart-button-default-size { height: 40px; padding: 0 16px; }
+          .botstart-button-sm { height: 36px; padding: 0 12px; }
+          .botstart-button-lg { height: 44px; padding: 0 32px; }
+          .botstart-button-icon { height: 40px; width: 40px; padding: 0; }
+
+          .botstart-button:disabled {
+            pointer-events: none;
+            opacity: 0.5;
+          }
+        `}</style>
+
+        <Comp
+          className={`botstart-button botstart-button-${variant} botstart-button-${size} ${className}`}
+          ref={ref}
+          {...props}
+        />
+      </>
     );
   }
 );
 
 Button.displayName = "Button";
 
-export { Button, buttonVariants };
+export { Button };

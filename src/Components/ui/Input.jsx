@@ -1,17 +1,39 @@
 import * as React from "react";
-import { cn } from "../../lib/utils";
 
 const Input = React.forwardRef(({ className, type, ...props }, ref) => {
   return (
-    <input
-      type={type}
-      className={cn(
-        "flex h-10 w-full rounded-md border text-black border-input bg-background px-3 py-2 text-base placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus:outline-none focus:ring-0",
-        className
-      )}
-      ref={ref}
-      {...props}
-    />
+    <>
+      <style>{`
+        .botstart-input {
+          flex: 1;
+          height: 40px;
+          width: 100%;
+          border-radius: 8px;
+          border: 1px solid #d1d5db; /* border-input equivalent */
+          background: #f9fafb; /* background equivalent */
+          padding: 8px 12px;
+          font-size: 14px;
+          color: #000;
+        }
+        .botstart-input::placeholder {
+          color: #9ca3af; /* placeholder:text-muted-foreground */
+        }
+        .botstart-input:disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+        }
+        .botstart-input:focus {
+          outline: none;
+          box-shadow: 0 0 0 0px transparent;
+        }
+      `}</style>
+      <input
+        type={type}
+        className={`botstart-input ${className || ""}`}
+        ref={ref}
+        {...props}
+      />
+    </>
   );
 });
 
