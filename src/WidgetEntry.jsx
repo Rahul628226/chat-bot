@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import FloatingChat from './Components/FloatingChat';
-import stylesText from './index.css?inline';
+import styles from './index.css';
 
 function initChatWidget({ containerId = 'chat-widget-container' } = {}) {
     let container = document.getElementById(containerId);
@@ -19,7 +19,7 @@ function initChatWidget({ containerId = 'chat-widget-container' } = {}) {
     const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
 
     const styleSheet = document.createElement('style');
-    styleSheet.textContent = stylesText;
+    styleSheet.textContent = styles;
     shadowRoot.appendChild(styleSheet);
 
     const shadowContainer = document.createElement('div');

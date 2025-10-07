@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Chat Widget</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        p {
+            line-height: 1.6;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Welcome to Our Website</h1>
+        <p>This is a test page to demonstrate that our chat widget doesn't affect the host website's styles.</p>
+        <p>The chat widget should appear in the bottom right corner with its own isolated styles.</p>
+    </div>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+    <script src="./public/my-react-widget.umd.js"></script>
+    <script>
+        if (window.MyReactWidget && window.MyReactWidget.renderWidget) {
+            const container = document.createElement('div');
+            container.id = 'chat-widget-root';
+            document.body.appendChild(container);
+            window.MyReactWidget.renderWidget('chat-widget-root');
+        } else {
+            console.error('Widget not loaded properly');
+        }
+    </script>
+</body>
+</html>

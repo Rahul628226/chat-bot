@@ -23,23 +23,15 @@ export default {
       },
       {
         test: /\.css$/,
-        oneOf: [
+        use: [
           {
-            resourceQuery: /inline/,
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  exportType: 'string',
-                  importLoaders: 1,
-                },
-              },
-              'postcss-loader',
-            ],
+            loader: 'css-loader',
+            options: {
+              exportType: 'string',
+              importLoaders: 1,
+            },
           },
-          {
-            use: ['style-loader', 'css-loader', 'postcss-loader'],
-          },
+          'postcss-loader',
         ],
       },
     ],
