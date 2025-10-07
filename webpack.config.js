@@ -12,7 +12,7 @@ export default {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // <-- include .jsx
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -23,9 +23,25 @@ export default {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        oneOf: [
+          {
+            resourceQuery: /inline/,
+            use: [
+              {
+                loader: 'css-loader',
+                options: {
+                  exportType: 'string',
+                  importLoaders: 1,
+                },
+              },
+              'postcss-loader',
+            ],
+          },
+          {
+            use: ['style-loader', 'css-loader', 'postcss-loader'],
+          },
+        ],
       },
-
     ],
   },
   resolve: {
