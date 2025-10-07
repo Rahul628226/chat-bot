@@ -4,12 +4,12 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Index } from './pages'
 import './index.css'
-import LandingPage from './Components/LandingPage'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div>
+      <Index />
     </div>
   )
 }

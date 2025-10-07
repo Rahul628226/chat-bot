@@ -1,21 +1,15 @@
-import React from 'react';
-import FloatingChat from '../Components/FloatingChat';
+import React from 'react'
+import FloatingChat from '../Components/FloatingChat'
 
-const Index = () => {
+export const Index = () => {
   return (
-    <>
-      <style>{`
+          <><style>{`
         .botchat-container {
           height: 100vh;
           background-color: #f0f2f5; /* replace bg-chat-background color */
         }
-      `}</style>
-
-      <div className="botchat-container">
+      `}</style><div className="botchat-container">
         <FloatingChat />
-      </div>
-    </>
-  );
-};
-
-export default Index;
+      </div></>
+  )
+}

@@ -11,9 +11,25 @@ function initChatWidget({ containerId = 'chat-widget-container' } = {}) {
         document.body.appendChild(container);
     }
 
-    const root = ReactDOM.createRoot(container);
+    const shadowHost = document.createElement('div');
+    shadowHost.id = 'chat-widget-shadow-host';
+    container.appendChild(shadowHost);
+
+    const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
+
+    const shadowContainer = document.createElement('div');
+    shadowRoot.appendChild(shadowContainer);
+
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = `
+        * {
+            box-sizing: border-box;
+        }
+    `;
+    shadowRoot.appendChild(styleSheet);
+
+    const root = ReactDOM.createRoot(shadowContainer);
     root.render(<FloatingChat />);
 }
 
-// Expose globally
 window.initChatWidget = initChatWidget;
