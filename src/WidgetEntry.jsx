@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import FloatingChat from './Components/FloatingChat';
-import stylesText from './index.css?inline';
 
 function initChatWidget({ containerId = 'chat-widget-container' } = {}) {
     let container = document.getElementById(containerId);
@@ -12,21 +11,9 @@ function initChatWidget({ containerId = 'chat-widget-container' } = {}) {
         document.body.appendChild(container);
     }
 
-    const shadowHost = document.createElement('div');
-    shadowHost.id = 'chat-widget-shadow-host';
-    container.appendChild(shadowHost);
-
-    const shadowRoot = shadowHost.attachShadow({ mode: 'open' });
-
-    const styleSheet = document.createElement('style');
-    styleSheet.textContent = stylesText;
-    shadowRoot.appendChild(styleSheet);
-
-    const shadowContainer = document.createElement('div');
-    shadowRoot.appendChild(shadowContainer);
-
-    const root = ReactDOM.createRoot(shadowContainer);
+    const root = ReactDOM.createRoot(container);
     root.render(<FloatingChat />);
 }
 
+// Expose globally
 window.initChatWidget = initChatWidget;
